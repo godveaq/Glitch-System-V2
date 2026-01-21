@@ -1,0 +1,35 @@
+{
+  "name": "glitcher",
+  "version": "1.0.0",
+  "description": "Professional Web Security Testing Platform - A Burp Suite inspired tool",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "python": "python run_glitcher.py",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "security",
+    "testing",
+    "web-security",
+    "penetration-testing",
+    "proxy",
+    "hacking",
+    "glitcher",
+    "burp",
+    "portswigger"
+  ],
+  "author": "Glitcher Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.22.1",
+    "http-proxy": "^1.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

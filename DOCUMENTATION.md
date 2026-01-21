@@ -1,5 +1,7 @@
 # Glitcher - Professional Web Security Testing Platform
 
+## Overview
+
 Glitcher is a professional web security testing platform inspired by PortSwigger's Burp Suite. It provides a comprehensive set of tools for web application security testing including proxy capabilities, vulnerability scanning, and manual testing features.
 
 ## Features
@@ -26,8 +28,19 @@ Glitcher is a professional web security testing platform inspired by PortSwigger
 - **Reliable Vulnerability Detection**: Consistent display of security vulnerabilities in Site Package module
 - **Fixed UA Generator**: Proper UI updates and reliable generation with improved feedback
 
+## Architecture
+
+Glitcher operates as a man-in-the-middle proxy:
+
+```
+Browser ↔ Glitcher Proxy ↔ Target Web Server
+```
+
+All traffic between the browser and target server passes through Glitcher, allowing for inspection, modification, and analysis.
+
 ## Installation
 
+### Web Version
 1. Clone or download this repository
 2. Install Node.js if not already installed
 3. Run the following command to install dependencies:
@@ -36,10 +49,18 @@ Glitcher is a professional web security testing platform inspired by PortSwigger
 npm install
 ```
 
+### Python GUI Version
+1. Clone or download this repository
+2. Ensure Python 3.6+ is installed
+3. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Usage
 
 ### Web Version
-
 1. Start the Glitcher server:
 
 ```bash
@@ -55,13 +76,18 @@ npm start
 4. Access Glitcher interface at `http://localhost:8080`
 
 5. To access via `http://glitch`, you need to:
-   - Add an entry to your system's hosts file (`C:\\Windows\\System32\\drivers\\etc\\hosts` on Windows)
+   - Add an entry to your system's hosts file (`C:\Windows\System32\drivers\etc\hosts` on Windows)
    - Add the line: `127.0.0.1 glitch`
    - Restart your browser after making this change
 
 ### Python GUI Version
-
 1. Run the Python GUI application:
+
+```bash
+npm run python
+```
+
+or
 
 ```bash
 python run_glitcher.py
@@ -73,9 +99,9 @@ python run_glitcher.py
 
 4. The Python version provides the same professional security testing capabilities as the web version
 
-## How to Use
+## How to Use Each Component
 
-### Proxy Functionality
+### Proxy
 - Toggle interception on/off using the Proxy panel
 - All HTTP/HTTPS traffic routed through the configured proxy will be captured
 - Review and modify requests in the HTTP history table
@@ -95,6 +121,20 @@ python run_glitcher.py
 ### Target
 - Add target URLs to build a site map
 - Monitor and analyze the target application structure
+- Crawl sites to discover additional URLs
+- Analyze discovered URLs for vulnerabilities
+
+### Sequencer
+- Capture tokens to analyze their randomness and predictability
+- Use for session token analysis
+
+### Decoder
+- Encode/decode various formats (Base64, URL, HTML, etc.)
+- Useful for crafting malicious payloads
+
+### Comparer
+- Compare two pieces of content side by side
+- Useful for analyzing different responses
 
 ### Site Package
 - Automatically crawl and analyze websites
@@ -104,24 +144,42 @@ python run_glitcher.py
 - Find hidden URLs in page source
 - Click on URLs to see detailed analysis on the right panel
 
-## Architecture
+### Scanner
+- Perform automated vulnerability scans
+- Identify common web application vulnerabilities
 
-Glitcher operates as a man-in-the-middle proxy:
-
-```
-Browser ↔ Glitcher Proxy ↔ Target Web Server
-```
-
-All traffic between the browser and target server passes through Glitcher, allowing for inspection, modification, and analysis.
+### Extender
+- Manage and install extensions
+- Enhance functionality with plugins
 
 ## Legal Disclaimer
 
 Glitcher is intended for authorized security testing only. Users are responsible for ensuring they have explicit permission before testing any systems they do not own. Unauthorized access to computer systems is illegal in many jurisdictions.
 
-## License
+## Development
 
-MIT License - see LICENSE file for details.
+To contribute to Glitcher:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+### Project Structure
+- `index.html` - Main web interface
+- `styles.css` - Styling for web interface
+- `app.js` - JavaScript functionality for web version
+- `server.js` - Node.js server implementation
+- `glitcher_gui.py` - Python GUI implementation
+- `run_glitcher.py` - Python GUI launcher
+- `README.md` - Project documentation
+- `package.json` - Node.js dependencies
+- `requirements.txt` - Python dependencies
 
 ## Security Notice
 
 This tool is designed for security professionals and should be used responsibly. Always follow responsible disclosure practices and applicable laws in your jurisdiction.
+
+## License
+
+MIT License - see LICENSE file for details.

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glitcher - Professional Web Security Testing Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header class="app-header">
+            <div class="logo">
+                <h1>GLITCHER</h1>
+                <p>Professional Web Security Testing Platform</p>
+            </div>
+            <nav class="main-nav">
+                <button id="dashboard-btn" class="nav-btn active">Dashboard</button>
+                <button id="target-btn" class="nav-btn">Target</button>
+                <button id="proxy-btn" class="nav-btn">Proxy</button>
+                <button id="intruder-btn" class="nav-btn">Intruder</button>
+                <button id="repeater-btn" class="nav-btn">Repeater</button>
+                <button id="sequencer-btn" class="nav-btn">Sequencer</button>
+                <button id="decoder-btn" class="nav-btn">Decoder</button>
+                <button id="comparer-btn" class="nav-btn">Comparer</button>
+                <button id="scanner-btn" class="nav-btn">Scanner</button>
+                <button id="extender-btn" class="nav-btn">Extender</button>
+            </nav>
+        </header>
+
+        <main class="app-main">
+            <div id="dashboard-panel" class="panel active">
+                <h2>Dashboard</h2>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <h3>Requests Intercepted</h3>
+                        <p id="request-count">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Vulnerabilities Found</h3>
+                        <p id="vuln-count">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Targets</h3>
+                        <p id="target-count">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Scan Progress</h3>
+                        <p id="scan-progress">0%</p>
+                    </div>
+                </div>
+                <div class="dashboard-content">
+                    <h3>Recent Activity</h3>
+                    <div id="activity-log"></div>
+                </div>
+            </div>
+
+            <div id="proxy-panel" class="panel">
+                <h2>Proxy</h2>
+                <div class="proxy-controls">
+                    <button id="toggle-proxy" class="control-btn">Intercept: OFF</button>
+                    <button id="clear-history" class="control-btn">Clear History</button>
+                </div>
+                <div class="proxy-content">
+                    <table id="http-history">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Method</th>
+                                <th>URL</th>
+                                <th>Status</th>
+                                <th>Length</th>
+                                <th>Time</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-body">
+                            <!-- Request history will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="intruder-panel" class="panel">
+                <h2>Intruder</h2>
+                <div class="intruder-controls">
+                    <select id="attack-type">
+                        <option value="sniper">Sniper</option>
+                        <option value="batteringram">Battering Ram</option>
+                        <option value="pitchfork">Pitchfork</option>
+                        <option value="clusterbomb">Cluster Bomb</option>
+                    </select>
+                    <button id="start-attack" class="control-btn">Start Attack</button>
+                    <button id="clear-attack" class="control-btn">Clear</button>
+                </div>
+                <div class="intruder-content">
+                    <div class="request-editor">
+                        <textarea id="intruder-request" placeholder="Enter HTTP request here..."></textarea>
+                    </div>
+                    <div class="payloads-section">
+                        <h3>Payloads</h3>
+                        <textarea id="payloads" placeholder="Enter payloads, one per line..."></textarea>
+                    </div>
+                    <div class="results-section">
+                        <h3>Results</h3>
+                        <div id="attack-results"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="repeater-panel" class="panel">
+                <h2>Repeater</h2>
+                <div class="repeater-controls">
+                    <button id="send-request" class="control-btn">Send</button>
+                    <button id="reset-request" class="control-btn">Reset</button>
+                </div>
+                <div class="repeater-content">
+                    <div class="request-section">
+                        <h3>Request</h3>
+                        <textarea id="repeater-request" placeholder="Enter HTTP request here..."></textarea>
+                    </div>
+                    <div class="response-section">
+                        <h3>Response</h3>
+                        <pre id="repeater-response"></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div id="target-panel" class="panel">
+                <h2>Target</h2>
+                <div class="target-controls">
+                    <input type="text" id="target-url" placeholder="Enter target URL...">
+                    <button id="add-target" class="control-btn">Add Target</button>
+                </div>
+                <div class="target-content">
+                    <div id="site-map"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
