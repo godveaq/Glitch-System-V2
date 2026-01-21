@@ -124,4 +124,13 @@ MIT License - see LICENSE file for details.
 
 ## Security Notice
 
-This tool is designed for security professionals and should be used responsibly. Always follow responsible disclosure practices and applicable laws in your jurisdiction.
+
+This tool is desi
+
+https://github.com/user-attachments/assets/43e0eed7-e95f-4274-993f-52fc3a611932
+
+
+https://github.com/user-attachments/assets/c3b4a698-b408-420d-b33d-0d56cd9fd3b4
+
+
+gned for security professionals and should be used responsibly. Always follow responsible disclosure practices and applicable laws in your jurisdiction.
